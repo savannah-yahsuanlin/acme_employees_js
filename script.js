@@ -95,6 +95,19 @@ console.log(findManagementChainForEmployee(findEmployeeByName('shep Jr.', employ
 */
 spacer('');
 
+//======================================== generateManagementTree==========================//
+const generateManagementTree = (employees) => {
+	for(let i = 0; i < employees.length; i++) {
+		let employee = employees[i]
+		employee.reports= [] // add a report property for each employee
+
+		if(employee.managerId === employees[i].id) {
+			employee.reports.push(employee)
+			return employee
+		}
+	}
+	return employees		
+}
 
 spacer('generateManagementTree')
 //given a list of employees, generate a tree like structure for the employees, starting with the employee who has no manager. Each employee will have a reports property which is an array of the employees who report directly to them.
