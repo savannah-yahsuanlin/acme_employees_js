@@ -87,7 +87,7 @@ spacer('');
 const generateManagementTree =(employees) => {
 	for(let i = 0; i < employees.length; i++) {
 		let employee = employees[i]
-		employee.reports= []
+		employee.reports= [] // add a report property to each employee
 	}
 	return employees
 }
