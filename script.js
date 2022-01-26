@@ -68,20 +68,6 @@ const findManagementChainForEmployee = (employee, employees) =>{
 	return arr
 }
 
-
-/*
-[
-  {"id": 1, "name": "moe", "reports": []},
-  {"id": 2, "name": "larry", "managerId": 1, "reports": []},
-  {"id": 3, "name": "curly", "managerId": 1, "reports": []},
-  {"id": 4, "name": "shep", "managerId": 2, "reports": []},
-  {"id": 5, "name": "groucho", "managerId": 3, "reports": []},
-  {"id": 6, "name": "harpo", "managerId": 5, "reports": []},
-  {"id": 8, "name": "shep Jr.", "managerId": 4, "reports": []},
-  {"id": 99, "name": "lucy", "managerId": 1, "reports": []}
-]
-*/
-
 spacer('findManagementChain for moe')
 //given an employee and a list of employees, return a the management chain for that employee. The management chain starts from the employee with no manager with the passed in employees manager 
 console.log(findManagementChainForEmployee(findEmployeeByName('moe', employees), employees));//[  ]
@@ -108,6 +94,20 @@ const generateManagementTree = (employees) => {
 	}
 	return employees		
 }
+
+
+/*
+[
+  {"id": 1, "name": "moe", "reports": []},
+  {"id": 2, "name": "larry", "managerId": 1, "reports": []},
+  {"id": 3, "name": "curly", "managerId": 1, "reports": []},
+  {"id": 4, "name": "shep", "managerId": 2, "reports": []},
+  {"id": 5, "name": "groucho", "managerId": 3, "reports": []},
+  {"id": 6, "name": "harpo", "managerId": 5, "reports": []},
+  {"id": 8, "name": "shep Jr.", "managerId": 4, "reports": []},
+  {"id": 99, "name": "lucy", "managerId": 1, "reports": []}
+]
+*/
 
 spacer('generateManagementTree')
 //given a list of employees, generate a tree like structure for the employees, starting with the employee who has no manager. Each employee will have a reports property which is an array of the employees who report directly to them.
