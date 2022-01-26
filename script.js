@@ -28,8 +28,8 @@ console.log(findEmployeeByName('moe', employees));//{ id: 1, name: 'moe' }
 spacer('')
 
 //======================================== findMangerFor============================================//
-const findCoworkersFor = (employee, employees) => {
-	return employees.filter(ele => ele.managerId === 1 && ele.name != 'larry')
+const findManagerFor = (employee, employees) => {
+	return employees.find(ele => ele.id === employee.managerId)
 }
 
 spacer('findManagerFor Shep Jr.')
@@ -39,7 +39,7 @@ spacer('')
 
 //======================================== findCoworkersFor Larry==================================//
 const findCoworkersFor = (employee, employees) => {
-	return employees.filter(ele => ele.managerId === employee.managerId && ele.name != 'larry')
+	return employees.filter(ele => ele.managerId === 1 && ele.name != 'larry')
 }
 
 spacer('findCoworkersFor Larry')
