@@ -28,8 +28,8 @@ console.log(findEmployeeByName('moe', employees));//{ id: 1, name: 'moe' }
 spacer('')
 
 //======================================== findMangerFor============================================//
-const findManagerFor = (employee, employees) => {
-	return employees.find(element => element.id === 4)
+const findCoworkersFor = (employee, employees) => {
+	return employees.filter(ele => ele.managerId === 1 && ele.name != 'larry')
 }
 
 spacer('findManagerFor Shep Jr.')
@@ -39,7 +39,7 @@ spacer('')
 
 //======================================== findCoworkersFor Larry==================================//
 const findCoworkersFor = (employee, employees) => {
-	return employees.filter(employee => employee.managerId === 1 && employee.name != 'larry')
+	return employees.filter(ele => ele.managerId === employee.managerId && ele.name != 'larry')
 }
 
 spacer('findCoworkersFor Larry')
@@ -53,7 +53,7 @@ console.log(findCoworkersFor(findEmployeeByName('larry', employees), employees))
 spacer('');
 
 //======================================== findManagementChainForEmployee==========================//
-function findManagementChainForEmployee(employee, employees) {
+const findManagementChainForEmployee = (employee, employees) =>{
 	let arr =[]
 	employees.forEach((ele, i) => {
 		if (employee.hasOwnProperty('managerId')) {
@@ -67,7 +67,6 @@ function findManagementChainForEmployee(employee, employees) {
 	})
 	return arr
 }
-
 
 spacer('findManagementChain for moe')
 //given an employee and a list of employees, return a the management chain for that employee. The management chain starts from the employee with no manager with the passed in employees manager 
@@ -84,18 +83,8 @@ spacer('');
 
 //======================================== findManagementChainForEmployee==========================//
 
-const generateManagementTree = (employees) => {
-	for(let i = 0; i < employees.length; i++) {
-		let employee = employees[i]
-		employee.reports= [] // add a report property for each employee
 
-		if(employee.managerId === employees[i].id) {
-			employee.reports.push(employee)
-			return employee
-		}
-	}
-	return employees		
-}
+
 /*
 [
   {"id": 1, "name": "moe", "reports": []},
