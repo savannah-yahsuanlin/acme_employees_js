@@ -19,7 +19,7 @@ const spacer = (text)=> {
 
 //======================================== findEmployeeByName========================================//
 const findEmployeeByName = (name, employees) => {
-	return employees.find(name => name === name)
+	return employees.find(ele => ele.name === name)
 }
 
 spacer('findEmployeeByName Moe')
@@ -84,12 +84,17 @@ spacer('');
 
 //======================================== findManagementChainForEmployee==========================//
 
-const generateManagementTree =(employees) => {
+const generateManagementTree = (employees) => {
 	for(let i = 0; i < employees.length; i++) {
 		let employee = employees[i]
-		employee.reports= [] // add a report property to each employee
+		employee.reports= [] // add a report property for each employee
+
+		if(employee.managerId === employees[i].id) {
+			employee.reports.push(employee)
+			return employee
+		}
 	}
-	return employees
+	return employees		
 }
 /*
 [
